@@ -161,3 +161,19 @@ Open:
 docker build -t doc-intelligence-ai .
 docker run --rm -p 8000:8000 --env-file .env doc-intelligence-ai
 ```
+
+## Deploy On Render
+
+This repo includes `render.yaml` for one-click multi-service deploy (FastAPI backend + Streamlit UI).
+
+1. Push this repo to GitHub.
+2. In Render, choose **New +** -> **Blueprint**.
+3. Select your repo (Render will detect `render.yaml`).
+4. Set secret env var `GEMINI_API_KEY` for `doc-intelligence-backend`.
+5. Deploy.
+
+After deploy:
+- Backend URL: `https://doc-intelligence-backend.onrender.com`
+- UI URL: `https://doc-intelligence-ui.onrender.com`
+
+The UI service reads `BACKEND_URL` automatically from the backend service URL via blueprint config.
