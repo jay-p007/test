@@ -82,7 +82,7 @@ with st.sidebar:
 
     st.divider()
     st.header("Settings")
-    api_base = st.text_input("Backend URL", value=API_DEFAULT).rstrip("/")
+    # api_base = st.text_input("Backend URL", value=API_DEFAULT).rstrip("/")
     top_k = st.slider("Top-K Retrieval", min_value=1, max_value=10, value=5)
     use_stream = st.toggle("Use Streaming", value=True)
     show_raw_json = st.toggle("Show Raw JSON", value=False)
@@ -215,4 +215,3 @@ with col2:
                 st.error(f"Streaming failed. {detail}")
 
 st.divider()
-st.markdown("Run backend first: `uvicorn app.main:app --reload` and UI: `streamlit run streamlit_app.py`")
